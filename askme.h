@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QMdiSubWindow>
+#include <QFile>
+#include <QTextStream>
 
 #include "apunteform.h"
 #include "asignatura.h"
@@ -18,6 +20,9 @@ class Askme : public QMainWindow
 public:
     Askme(QWidget *parent = nullptr);
     ~Askme();
+     void guardar();
+     void cargar();
+     void mostrarListaApuntes();
 
 public slots:
     void on_apunteTomado(Apunte *apunte);
@@ -25,10 +30,13 @@ public slots:
 private slots:
     void on_actionNuevo_triggered();
 
+    void on_actionLista_triggered();
+
 private:
     Ui::Askme *ui;
     void cargarSubVentana(QWidget *ventana);
     void cargarDatos();
+
 
     QList<Asignatura*> m_asignaturas;
 
